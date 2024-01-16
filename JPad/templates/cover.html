@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cover Page</title>
+  <style>
+    body {
+      background-color: #f2f2f2;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .cover {
+      background-image:  url("{{ url_for('static', filename='cover_page.jpg') }}");
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .cover h1 {
+      color: #ffffff;
+      font-size: 48px;
+      margin: 0;
+    }
+
+    .cover p {
+      color: #ffffff;
+      font-size: 24px;
+      margin: 20px 0 0 0;
+    }
+
+    .cover .description {
+      color: #ffffff;
+      font-size: 18px;
+      margin: 40px 0;
+      max-width: 600px;
+    }
+
+    button {
+      display: inline-block;
+      background-color: #ff5555;
+      color: #ffffff;
+      font-size: 18px;
+      padding: 10px 20px;
+      margin-top: 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #ff0000;
+    }
+  </style>
+</head>
+<body>
+  <div class="cover">
+    <h1>Welcome to JPad</h1>
+    <p>created by: Josh Brian Kurniawan</p>
+    <div class="description">
+      <p>This web application is currently in active development, with ongoing improvements and updates being made to enhance its functionality and user experience.</p>
+      <p>The application offers a versatile set of features and functionalities across four distinct modes, providing users with a range of options to cater to their specific needs. Each mode is designed with a unique purpose and offers different tools and capabilities to assist you in various tasks.</p>
+    </div>
+    <form method="POST" action="/home">
+      <button type="submit" name="Get Started">Get Started</button>
+   </form>
+  </div>
+</body>
+</html>

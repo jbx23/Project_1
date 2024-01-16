@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>To Do List</title>
+    <style>
+      body {
+        background-color: #f4f4f4;
+        font-family: Arial, sans-serif;
+        background-image: url("{{ url_for('static', filename='todo.jpg') }}");
+        background-size: cover;
+      }
+      
+      h1 {
+        text-align: center;
+        color: #ffffff;
+        margin-top: 40px;
+        font-size: 40px;
+      }
+      
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        width:100%;
+      }
+      
+      .input-block {
+        background-color: #e2dbdb;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        margin-bottom: 50px;
+      }
+      
+      .input-block h3 {
+        color: #333333;
+        margin-top: 0;
+      }
+      
+      .input-block input[type="text"] {
+        width: 93%;
+        padding: 10px;
+        border: none;
+        border-radius: 3px;
+        box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+        margin-bottom: 10px;
+        background-color: whitesmoke;
+      }
+      
+      .input-block button {
+        padding: 10px 20px;
+        background-color: #333333;
+        color: #ffffff;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        width: 100%;
+      }
+      
+      .input-block button:hover {
+        background-color: #555555;
+      }
+      
+      .list-container {
+        display: flex;
+        justify-content:center;
+        width: 100%;
+        max-width: 1000px;
+        gap: 50px;
+      }
+      
+      .list-block {
+        background-color:#e2dbdb;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+        width: 200%;
+      }
+      
+      .list-block h2 {
+        color: #333333;
+        margin-top: 0;
+      }
+      
+      .list-block ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
+      
+      .list-block ul li {
+        padding: 10px;
+        border-bottom: 1px solid #d80d0d;
+        cursor: pointer;
+      }
+      
+      .list-block ul li:last-child {
+        border-bottom: none;
+      }
+      
+      .list-block ul li.done {
+        text-decoration: line-through;
+        color: #999999;
+      }
+
+    button#back-button {
+      position: fixed;
+      top: 40px;
+      right: 20px;
+      z-index: 9999;
+      padding: 10px 10px;
+      background-color: #555555;
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 3px;
+      transition: background-color 0.3s;
+    }
+
+    button#back-button:hover {
+      background-color: #333333;
+    }
+      
+      @media (max-width: 768px) {
+        .list-container {
+          flex-direction: column;
+          align-items: center;
+        }
+        
+        .list-block {
+          width: 100%;
+          margin-bottom: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>To Do List</h1>
+    <br>
+    <div class="container">
+      <div class="input-block">
+        <h3>Add New Task</h3>
+        <input type="text" placeholder="Enter new task here" id="new-task">
+        <button id="add-task-btn">Add</button>
+      </div>
+      <div class="list-container">
+        <div class="list-block">
+          <h2>To Do</h2>
+          <ul id="todo-list"></ul>
+        </div>
+        <div class="list-block">
+          <h2>Done</h2>
+          <ul id="done-list"></ul>
+        </div>
+      </div>
+      <form method="POST" action="/home">
+        <button type="submit" id="back-button">Back to Home</button>
+     </form>
+    </div>
+    
+    <script>
+      const buttonClicked = sessionStorage.getItem("buttonClicked");
+      if (!buttonClicked) {
+        window.location.href = "/";
+        alert("Please click get started button!");
+      }
+
+      const newTaskInput = document.querySelector('#new-task');
+      const addTaskBtn = document.querySelector('#add-task-btn');
+      const todoList = document.querySelector('#todo-list');
+      const doneList = document.querySelector('#done-list');
+      
+      addTaskBtn.addEventListener('click', addTask);
+      newTaskInput.addEventListener('keydown', event => {
+        if (event.keyCode === 13) {
+          addTask();
+        }
+      });
+      
+      function addTask() {
+        const taskText = newTaskInput.value.trim();
+        if (taskText === '') {
+          return;
+        }
+        
+        const newTaskItem = document.createElement('li');
+        newTaskItem.textContent = taskText;
+        
+        newTaskItem.addEventListener('click', moveTaskToDone);
+        todoList.appendChild(newTaskItem);
+        newTaskInput.value = '';
+      }
+      
+      function moveTaskToDone(event) {
+        const taskItem = event.target;
+        taskItem.removeEventListener('click', moveTaskToDone);
+        taskItem.addEventListener('click', moveTaskToTodo);
+        taskItem.classList.add('done');
+        doneList.appendChild(taskItem);
+      }
+      
+      function moveTaskToTodo(event) {
+        const taskItem = event.target;
+        taskItem.removeEventListener('click', moveTaskToTodo);
+        taskItem.addEventListener('click', moveTaskToDone);
+        taskItem.classList.remove('done');
+        todoList.appendChild(taskItem);
+      }
+    </script>
+  </body>
+</html>
