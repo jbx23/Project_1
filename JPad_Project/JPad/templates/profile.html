@@ -1,1 +1,36 @@
-<h1>hello world</h1>
+<!-- myapp/templates/profile.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <!-- Include any additional CSS styles or links here -->
+</head>
+<body>
+
+  <h2>User Profile</h2>
+  <p><strong>Debug:</strong> {{ profile }}</p>
+  <p><strong>Username:</strong> {{ profile.username }}</p>
+  <p><strong>Name:</strong> {{ profile.name }}</p>
+  <p><strong>Last Name:</strong> {{ profile.last_name }}</p>
+  <p><strong>Email:</strong> {{ profile.email }}</p>
+  <p><strong>Age:</strong> {{ profile.age }}</p>
+  <div class="navbar-nav">
+    {% if user.is_authenticated %}
+        <a class="nav-item nav-link" href="{% url 'logout' %}">
+            Log out <i class="fas fa-sign-out-alt"></i>
+        </a>
+    {% else %}
+        <a class="nav-item nav-link" href="{% url 'login' %}">
+            Log in <i class="fas fa-sign-in-alt"></i>
+        </a>
+        <a class="nav-item nav-link" href="{% url 'register' %}">
+            Sign up <i class="fas fa-user-plus"></i>
+        </a>
+    {% endif %}
+
+  <!-- Add more details as needed -->
+
+</body>
+</html>
