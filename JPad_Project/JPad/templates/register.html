@@ -1,76 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-
+{% load static %}
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Registration</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
-
-        form {
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            width: 300px;
-            text-align: center;
-        }
-
-        h2 {
-            color: #333;
-        }
-
-        label {
-            display: block;
-            margin: 10px 0;
-            text-align: left;
-            color: #555;
-        }
-
-        input {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 10px;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        button {
-            background-color: #4caf50;
-            color: #fff;
-            padding: 10px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+    <title> Register</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
-
 <body>
-    {% for message in messages %}
-    <h5>{{message}}</h5>
-    {%endfor%}
-    <form action="{% url 'register' %}" method="post">
+
+    <form action="{% url 'register' %}" method="post" class="register-form">
         {% csrf_token %}
         <h2>User Registration</h2>
-        <label for="id_name">Name:</label>
-        <input type="text" id="id_name" name="name" required>
+
+        {% for message in messages %}
+            <div class="form-message">{{ message }}</div>
+        {% endfor %}
+
+        <label for="id_firstname">First Name:</label>
+        <input type="text" id="id_firstname" name="firstname" required>
 
         <label for="id_lastname">Last Name:</label>
         <input type="text" id="id_lastname" name="lastname" required>
@@ -81,14 +31,36 @@
         <label for="id_email">Email:</label>
         <input type="email" id="id_email" name="email" required>
 
+        <label for="id_age">Age:</label>
+        <input type="number" id="id_age" name="age">
+
         <label for="id_password">Password:</label>
-        <input type="password" id="id_password" name="password" required>
+        <input type="password" id="id_password" name="password" pattern=".*\d.*" minlength="5" title="Password must be at least 5 characters long and contain at least one number" required>
+        
+        <span id="password-error" style="color: red;"></span>
 
         <label for="id_password2">Confirm Password:</label>
         <input type="password" id="id_password2" name="password2" required>
+        
         <button type="submit">Register</button>
         <p>Already have an account? <a href="/login">Login here</a>.</p>
     </form>
-</body>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var passwordInput = document.getElementById('id_password');
+            var passwordError = document.getElementById('password-error');
+            var registerButton = document.querySelector('button[type="submit"]');
+            passwordInput.addEventListener('input', function () {
+                if (passwordInput.validity.patternMismatch || passwordInput.validity.tooShort) {
+                    passwordError.textContent = 'Password must be at least 5 characters long and contain at least one number';
+                    registerButton.disabled=true;
+                } else {
+                    passwordError.textContent = '';
+                    registerButton.disabled=false;
+                }   
+            });
+        });
+    </script>
+</body>
 </html>

@@ -1,0 +1,103 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(90deg, #020024 0%, #DAAA00 35%, #d4af37 100%);
+    margin: 0;
+    padding: 0;
+    animation: moveBackground 10s linear infinite; 
+    background-size: 200%;
+
+}
+  @keyframes moveBackground {
+      0% {
+          background-position: 100% 0;
+      }
+  }
+
+  @keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+
+.container-profile {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: rgba(255,255,255,0.6);
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    max-height: 800px;
+    animation: slideIn 1s ease-out;
+}
+
+
+
+h2 {
+    color: #343a40;
+    text-align: center;
+    font-size: 35px;
+}
+
+.profile-info {
+    margin-top: 40px;
+}
+
+.profile-info p {
+    margin-bottom: 30px;
+    font-size: 30px;
+}
+.message{
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+.navbar-nav {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nav-item {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #343a40;
+    font-weight: bold;
+}
+
+.nav-item i {
+    margin-left: 5px;
+}
+
+.logout-btn,
+.login-btn,
+.signup-btn,
+.edit-btn {
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover,
+.login-btn:hover,
+.signup-btn:hover {
+    background-color: #acaf00;
+}
+
+.logout-btn {
+    background-color: #dc3545;
+}
+.login-bt{
+    background-color: #010049;
+}
+.signup-btn{
+    background-color: #6d0000 ;
+}
+
+.edit-btn{
+  background-color: #006d12;
+}

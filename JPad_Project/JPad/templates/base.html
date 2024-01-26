@@ -1,0 +1,130 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="{% static 'icons/jpad_black_name.jpg' %}" type="image/x-icon">
+  {% block head %}
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/base.css' %}"> 
+  {% endblock %}
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="{% static 'js/base.js' %}"></script>
+</head>
+<body>
+  <header id="nav-menu" aria-label="navigation bar">
+    <div class="container">
+      <div class="nav-start">
+        <a class="logo" href="{% url 'initial_landing' %}">
+          <img src="{% static 'icons/jpad_black_name.png' %}" width="80" height="80"  alt="Inc Logo" />
+          <span class="logo-text"> JPAD </span>
+        </a>
+        <nav class="menu">
+          <ul class="menu-bar">
+            {% if not user.is_authenticated %}
+            <li>
+              <li><a class="nav-link" href="/">About JPAD</a></li>
+            </li>
+            <li>
+            {% endif %}
+              <li><a class="nav-link" href="{% url 'home' %}"><i class="fas fa-home"></i> Home</a></li>
+              <button class="nav-link dropdown-btn" data-dropdown="dropdown1" aria-haspopup="true" aria-expanded="false" aria-label="browse">
+                Features <i class="bx bx-chevron-down" aria-hidden="true"></i>
+              </button>
+              <div id="dropdown1" class="dropdown">
+                <ul role="menu">
+                  <li role="menuitem">
+                    <a class="dropdown-link" href="{% url 'todo' %}">
+                      <img src="{% static 'icons/todo.png' %}" class="icon" />
+                      <div>
+                        <span class="dropdown-link-title">To-Do List</span>
+                        <p>write your todo things</p>
+                      </div>
+                    </a>
+                    <a class="dropdown-link" href="{% url 'gpa_converter' %}">
+                        <img src="{% static 'icons/gpa.png' %}" class="icon" />
+                        <div>
+                          <span class="dropdown-link-title">GPA Converter</span>
+                          <p>Conver your GPA</p>
+                        </div>
+                    </a>
+                    <a class="dropdown-link" href="{% url 'debt_tracker' %}">
+                        <img src="{% static 'icons/debt.png' %}" class="icon" />
+                        <div>
+                          <span class="dropdown-link-title">Debt Tracker</span>
+                          <p>Track and note your Debt</p>
+                        </div>
+                    </a>
+                    <a class="dropdown-link" href="{% url 'currency_converter' %}">
+                        <img src="{% static 'icons/currency.png' %}" class="icon" />
+                        <div>
+                          <span class="dropdown-link-title">Currency Converter</span>
+                          <p>Convert your Currency</p>
+                        </div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li><a class="nav-link" href="{% url 'contact' %}">Contact Us</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="nav-end">
+        <div class="right-container">
+          {% if user.is_authenticated %}
+          {% endif %}
+          <div class="profile-container">
+            {% if user.is_authenticated %}
+            <div class="profile-dropdown-toggle">
+              <i class='fas fa-user-circle' style='font-size:40px'></i>
+            </div>
+            <div class="profile-dropdown-toggle">
+              <div id="profile-dropdown" class="dropdown profile-dropdown">
+                <ul role="menu">
+                  <li role="menuitem">
+                    <a class="dropdown-link" href="{% url 'profile' %}">
+                      <img src="{% static 'icons/myprofile.png' %}" class="icon" />
+                      <div>
+                        <span class="dropdown-link-title">My Profile</span>
+                        <p>View and manage your profile</p>
+                      </div>
+                    </a>
+                  </li>
+                  <li role="menuitem">
+                    <a class="dropdown-link" href="{% url 'logout' %}">
+                      <img src="{% static 'icons/logout.png' %}" class="icon" />
+                      <div>
+                        <span class="dropdown-link-title">Logout</span>
+                        <p>Sign out of your account</p>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <button id="hamburger" aria-label="hamburger" aria-haspopup="true" aria-expanded="false">
+              <i class="bx bx-menu" aria-hidden="true"></i>
+            </button>
+
+            {% endif %}
+            {% if not user.is_authenticated %}
+            <ul><a class="nav-link btn btn-primary" href="{% url 'login' %}">Login</a></ul>
+            <ul><a class="nav-link btn btn-primary2" href="{% url 'register' %}">Register</a></ul>
+            {% endif %}
+          </div>
+         
+        </div>
+      </div>
+    </div>
+  </header>
+</body>
+<div class="content flex-container">
+  {% block content %}{% endblock %}
+</div>
+
+<div class="content flex-container">
+  {% block contact %}{% endblock %}
+</div>
+</html>

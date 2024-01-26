@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "base.html" %} 
+{% load static %}
+{% block head %}
+    {{ block.super }}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <title>{% block title %}Home{% endblock %}</title>
+{% endblock %}
+
+{% block content %}
+
+<body>
+  <div class="content">
+    <div class="top">
+      <h1>Please Select Modes</h1>
+    </div>
+    <div class="modes">
+      <div class="mode">
+        <div class="title">TO-DO</div>
+        <div class="description">This mode allows you to list all the stuff you have to do and all the stuff you have done</div>
+        <a href="{% url 'todo' %}" class="explore">Explore</a>
+      </div>
+      <div class="mode">
+        <div class="title">GPA Converter</div>
+        <div class="description">This mode allows you to to convert your GPA to any equivalent standard</div>
+        <a href="{% url 'gpa_converter' %}" class="explore">Explore</a>
+      </div>
+      <div class="mode">
+        <div class="title">Debt Tracker</div>
+        <div class="description">This mode allows you to note someone that has debt with you along with the amount.</div>
+        <a href="{% url 'debt_tracker' %}"  class="explore">Explore</a>
+      </div>
+      <div class="mode">
+        <div class="title">Currency Converter</div>
+        <div class="description">This mode allows you to estimate and convert the value of one currency to another</div>
+        <a  href="{% url 'currency_converter' %}" class="explore">Explore</a>
+      </div>
+    </div>
+  </div>
+</body>
+{% endblock %}
+</html>
