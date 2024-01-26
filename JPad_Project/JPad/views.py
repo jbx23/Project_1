@@ -231,8 +231,17 @@ def remove_debt(request, debt_id):
     debt.delete()
     return redirect('debt_tracker')
 def gpa_converter(request):
+    if not request.user.is_authenticated:
+        messages.warning(request,'Please Login to Acess This page!')
+        return redirect('login')
     return render(request, 'GPAConverter.html')
 def currency_converter(request):
-    return render(request, 'CurrencyConverter.html')
+      if not request.user.is_authenticated:
+          messages.warning(request,'Please Login to Acess This page!')
+          return redirect('login')
+      return render(request, 'CurrencyConverter.html')
 def home(request):
-    return render(request, 'home.html')
+      if not request.user.is_authenticated:
+          messages.warning(request,'Please Login to Acess This page!')
+          return redirect('login')
+      return render(request, 'home.html')
