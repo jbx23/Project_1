@@ -34,9 +34,9 @@
         <div class="list-block-todo">
           <h2>To Do</h2>
           <ul id="todo-list">
-              {% for task in tasks_todo %}
+              {% for tasks in tasks_todo %}
                   <li class="item" data-task-id="{{ task.id }}">
-                      {{ task.text }}
+                      {{ tasks.task }}
                   </li>
               {% endfor %}
           </ul>
@@ -44,9 +44,9 @@
          <div class="list-block-done">
           <h2>Done</h2>
           <ul id="done-list">
-              {% for task in tasks_done %}
+              {% for tasks in tasks_done %}
                   <li class="item" data-task-id="{{ task.id }}">
-                      {{ task.text }}
+                      {{ tasks.task }}
                   </li>
               {% endfor %}
           </ul>

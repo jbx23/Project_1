@@ -36,6 +36,7 @@
             <li>
                 <span>{{ debt.name }}: </span>
                 <span>${{ debt.amount }}</span>
+                <span> Date:{{debt.date}}</span>
                 <div class="button-container">
                     <form id="editButton" method="get" action="{% url 'edit_debt' debt.id %}">
                         {% csrf_token %}

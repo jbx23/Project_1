@@ -18,7 +18,7 @@ class Profile(models.Model):
 
 class Todo(models.Model):
     user=models.ForeignKey(User, on_delete=models.CASCADE)
-    text = models.CharField(max_length=255)
+    task = models.CharField(max_length=255)
     is_done = models.BooleanField(default=False)
     def __str__(self):
         return self.user
@@ -27,6 +27,7 @@ class Debt(models.Model):
     user=models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
     amount= models.DecimalField(max_digits=10, decimal_places=2)
+    date= models.DateField(blank=True, null=True)
     def __str__(self):
         return f"{self.name}: ${self.amount}"
 

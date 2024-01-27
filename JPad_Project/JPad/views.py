@@ -161,6 +161,9 @@ def debt_tracker(request):
     else:
         form = DebtForm()
     user_debts = Debt.objects.filter(user=request.user)
+    for debt in user_debts:
+        if debt.date is None:
+            debt.date=''
 
     return render(request, 'debtTracker.html', {'user_debts': user_debts, 'form': form})
 
@@ -208,7 +211,6 @@ def edit_debt(request, debt_id):
         messages.warning(request,'Please Login to Acess This page!')
         return redirect('login')  # Redirect to login if user is not logged in
     debt = get_object_or_404(Debt, id=debt_id, user=request.user)
-    print(debt)
     form = EditDebtForm(request.POST, instance=debt)
     if request.method == 'POST':
         if form.is_valid():
