@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% extends "base.html" %} 
+{% load static %}
+
+{% block head %}
+    {{ block.super }}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>{% block title %}Edit Debt{% endblock %}</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: linear-gradient(90deg, #020024 0%, #000000 35%, #003a61 100%); 
+            animation: moveBackground 10s linear infinite;
+            background-size: 200%;
+        }
+
+        @keyframes moveBackground {
+      0% {
+          background-position: 100% 0;
+      }
+     }
+     @keyframes bounceIn {
+        0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+     }
+        40% {
+            transform: translateY(-30px);
+        }   
+         60% {
+            transform: translateY(-15px);
+        }
+    }
+
+        h1{
+            margin-top: 10px;
+            color: #DAAA00;
+            text-align: center;
+            text-decoration:underline;
+        }
+
+        form {
+            max-width: 50%;
+            max-height: 150%;
+            margin-left: 25%;
+            margin-top: 5%;
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 10 0 10px rgba(0, 0, 0, 0.7);
+            animation: bounceIn 1s ease-out;
+        }
+
+        h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button.save {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button.save:hover {
+            background-color: #45a049;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <body>
+        <h1>Edit Debt</h1>
+        <form method="POST" action="">
+            {% csrf_token %}
+            <h3>Name:</h3>
+            {{ form.name }}
+            <h3>Amount:</h3>
+            {{ form.amount }}
+            <br>
+            <h3>Date:</h3>
+            {{form.date}}
+            <br>
+            <button type="submit" class="save"><i class="fas fa-save"></i> Save changes</button>
+        </form>
+    </body>
+{% endblock %}
+</html>

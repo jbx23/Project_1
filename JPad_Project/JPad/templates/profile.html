@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+    {{ block.super }}
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+        <title>{% block title %} Profile{% endblock %}</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </head>
+{% endblock %}
+
+<body>
+    {% block content %}
+    <div class="container-profile">
+      <div class="message">
+        {% if messages %}
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+      </div>
+        <h2>User Profile</h2>
+        <div class="profile-info">
+            <p><strong>Username:</strong> {{ user.username }}</p>
+            <p><strong>First Name:</strong> {{ user.first_name }}</p>
+            <p><strong>Last Name:</strong> {{ user.last_name }}</p>
+            <p><strong>Email:</strong> {{ user.email }}</p>
+        </div>
+        <div class="navbar-nav">
+            {% if user.is_authenticated %}
+                <form action="{% url 'edit_profile' %}" method="get" class="nav-item">
+                    {% csrf_token %}
+                    <button type="submit" class="edit-btn">Edit Profile <i class="fas fa-edit"></i></button>
+                </form>
+                <form action="{% url 'logout' %}" method="post" class="nav-item">
+                    {% csrf_token %}
+                    <button type="submit" class="logout-btn">Log out <i class="fas fa-sign-out-alt"></i></button>
+                </form>
+            {% else %}
+                <a class="nav-item login-btn" href="{% url 'login' %}">Log in <i class="fas fa-sign-in-alt"></i></a>
+                <a class="nav-item signup-btn" href="{% url 'register' %}">Sign up <i class="fas fa-user-plus"></i></a>
+            {% endif %}
+        </div>
+    </div>
+    {% endblock %}
+</body>
