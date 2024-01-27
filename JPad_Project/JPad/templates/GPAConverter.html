@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+    {{ block.super }}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'css/gpa_converter.css' %}">
+    <title>{% block title %} GPA Converter{% endblock %}</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+{% endblock %}
+</head>
+<body>
+  {% block content %}
+  <div id="container-gpa">
+    <div id="content">
+    <h1>GPA Converter</h1>
+    <div>
+      <label for="yourGPA">GPA:</label>
+      <input type="number" id="yourGPA" min="0">
+    </div>
+    <div>
+      <label for="yourMaxGPA">Max GPA:</label>
+      <input type="number" id="yourMaxGPA" min="0">
+    </div>
+    <div>
+      <label for="equivalentGPA">Equivalent GPA:</label>
+      <input type="number" id="equivalentGPA" min="0">
+    </div>
+    <div class="buttonOperations">
+      <button id="convert" onclick="convert()">Convert</button>
+      <button id="reset" onclick="reset()">Reset</button>
+    </div>    
+    <form method="POST" action="{% url 'home' %}">
+      <button type="submit" id="back-button">Back to Home</button>
+    </form>
+  </div>
+  <div id="result"></div>
+  </div>
+
+  <script>
+    function convert() {
+      var yourGPA = parseFloat(document.getElementById("yourGPA").value);
+      var yourMaxGPA = parseFloat(document.getElementById("yourMaxGPA").value);
+      var equivalentGPA = parseFloat(document.getElementById("equivalentGPA").value);
+
+      if (isNaN(yourGPA) || isNaN(yourMaxGPA) || isNaN(equivalentGPA)) {
+        alert("Please enter valid numeric values.");
+        return;
+      }
+
+      var convertedGPA = yourGPA * equivalentGPA / yourMaxGPA;
+      document.getElementById("result").innerHTML = "Your equivalent GPA out of " + equivalentGPA + " is " + convertedGPA.toFixed(2);
+    }
+    function reset() {
+      document.getElementById("yourGPA").value = "";
+      document.getElementById("yourMaxGPA").value = "";
+      document.getElementById("equivalentGPA").value = "";
+      document.getElementById("result").innerHTML = "";
+    }
+
+  </script>
+{% endblock %}
+</body>
+</html>

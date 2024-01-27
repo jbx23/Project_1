@@ -1,0 +1,203 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    color: #0000;
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-weight: 900;
+    font-size: 3em;
+    margin-bottom: .15em;
+    text-align: center;
+}
+
+p {
+    line-height: 1.5;
+    margin-top: 0;
+}
+
+.my-container-fluid {
+    padding: 0 1em;
+}
+
+.my-container {
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 2em 0;
+}
+
+.title {
+    font-size: 42px;
+    margin-bottom: 40px;
+}
+
+.my-splash {
+    background-image:  url('../images/cover_page.jpg'); 
+    background-size: cover;
+    position: relative;
+    color: #fff;
+    text-align: center;
+    padding: 25vh 0;
+}
+
+.my-lead {
+    font-size: 1.5em;
+    font-weight: 100;
+    margin-bottom: 1em;
+}
+
+.my-continue {
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 4em;
+}
+
+.my-continue a {
+    border: 4px solid #fff;
+    border-radius: 100%;
+    color: #fff;
+    display: inline-block;
+    text-decoration: none;
+    width: 80px;
+}
+
+.my-continue a:hover {
+    background-color: rgba(255, 255, 255, .25);
+}
+
+.my-intro {
+    background: linear-gradient(90deg, #020024 0%, #090979 35%, #00d4ff 100%);
+    color: #fff;
+    text-align: center;
+    padding: 5em 0;
+    background-size: 200% auto; /* Adjust the size as needed */
+    animation: moveBackground 10s linear infinite; /* Adjust the duration as needed */
+}
+
+@keyframes moveBackground {
+    0% {
+        background-position: 100% 0;
+    }
+    100% {
+        background-position: -100% 0;
+    }
+}
+
+
+.my-portfolio{
+  background: linear-gradient(to bottom, #878a05, #192200)
+}
+
+.my-gallery-image {
+    flex: 0 0 calc(33.33% - 70px);
+    background-color: #ffffff;
+    border-radius: 4px;
+    overflow: hidden;
+    height: 183px;
+    margin: 1em 4.5%;
+}
+
+.my-gallery-image img{
+    width: 800px;
+    height:auto;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* Add this to your existing CSS or create a new CSS file */
+.my-gallery-slider {
+    position: relative;
+    overflow: hidden;
+}
+
+.my-gallery {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+
+.slider-nav {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+}
+
+label {
+    width: 12px;
+    height: 12px;
+    background-color: #ddd;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+input:checked + label {
+    background-color: #555;
+}
+
+input[type ="radio"]{
+    display: none;
+}
+
+#slide1:checked ~ .my-gallery { transform: translateX(0%); }
+#slide2:checked ~ .my-gallery { transform: translateX(-100%); }
+#slide3:checked ~ .my-gallery { transform: translateX(-200%); }
+
+.gallery-title {
+    text-align: center;
+    margin: 0;
+    padding: 1em 0;
+    color: white;
+}
+
+.my-footer {
+    background-color: #000000;
+    color: #fff;
+    font-size: 1.5em;
+    text-align: center;
+    padding: 0.5em 0;
+    position: relative;
+}
+
+.my-footer a {
+    color: #fff;
+    margin-right: 1em;
+}
+
+.my-footer a:last-of-type {
+    margin-right: 0;
+}
+
+.footer-logo {
+    max-width: 250px;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+@media (max-width: 500px) {
+    .footer-logo {
+        width: 150px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .footer-logo {
+        width: 250px;
+    }
+}

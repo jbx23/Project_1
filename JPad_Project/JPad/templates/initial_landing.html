@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "base.html" %} 
+{% load static %}
+{% block head %}
+    {{ block.super }}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/initial_landing.css' %}">
+    <title>{% block title %}Landing Page{% endblock %}</title>
+{% endblock %}
+<body>
+{% block content %}
+<div class="my-container-fluid my-splash" id="splash">
+  <div class="my-container" style="width: 90%; min-height: 600px; padding: 10px;">
+    <h1 class="title">JPAD Featuring Web</h1>
+    <span class="my-lead"><p>This web application is currently in active development, with ongoing improvements and updates being made to enhance its functionality and user experience.</p>
+      <p>The application offers a versatile set of features and functionalities across four distinct modes, providing users with a range of options to cater to their specific needs. Each mode is designed with a unique purpose and offers different tools and capabilities to assist you in various tasks.</p></span>
+    <span class="my-continue"><a href="#about"><i class="fa fa-angle-down"></i></a></span>
+  </div>
+</div>
+
+<div class="my-container-fluid my-intro" id="about">
+  <div class="my-container cf">
+    <h2>About Me</h2>
+    <br>
+    <p>My name is Josh Brian Kurniawan, I am a Fresh Graduate Data Scientist from University of Western Australia</p>
+  </div>
+</div>
+
+<div class="my-container-fluid my-portfolio" id="portfolio">
+  <h2 class="gallery-title">My Space Gallery</h2>
+  <div class="my-container cf">
+      <div class="my-gallery-slider">
+        <input type="radio" name="gallery" id="slide1" checked>
+        <input type="radio" name="gallery" id="slide2">
+        <input type="radio" name="gallery" id="slide3">
+        <div class="my-gallery">
+          <!-- Slide 1 -->
+          <div class="my-gallery-image">
+              <label for="slide1"><img src="{% static 'images/pict1.jpg' %}" alt="Pict1"></label>
+          </div>
+          <div class="my-gallery-image">
+              <label for="slide1"><img src="{% static 'images/pict2.jpg' %}" alt="Pict2"></label>
+          </div>
+          <div class="my-gallery-image">
+              <label for="slide1"><img src="{% static 'images/pict3.jpg' %}" alt="Pict3"></label>
+          </div>
+
+          <div class="my-gallery-image">
+            <label for="slide2"><img src="{% static 'images/pict4.jpg' %}" alt="Pict4"></label>
+          </div>
+          <div class="my-gallery-image">
+              <label for="slide2"><img src="{% static 'images/pict5.jpg' %}" alt="Pict5"></label>
+          </div>
+          <div class="my-gallery-image">
+              <label for="slide2"><img src="{% static 'images/pict6.jpg' %}" alt="Pict6"></label>
+          </div>
+
+          <div class="my-gallery-image">
+            <label for="slide3"><img src="{% static 'images/pict7.jpg' %}" alt="Pict7"></label>
+          </div>
+          <div class="my-gallery-image">
+            <label for="slide3"><img src="{% static 'images/pict8.jpg' %}" alt="Pict8"></label>
+          </div>
+          <div class="my-gallery-image">
+            <label for="slide3"><img src="{% static 'images/pict9.jpg' %}" alt="Pict9"></label>
+          </div>
+      </div>
+          <br>
+          <div class="slider-nav">
+              <label for="slide1"></label>
+              <label for="slide2"></label>
+              <label for="slide3"></label>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<footer class="my-container-fluid my-footer">
+  <div class="my-container">
+    <img src="{% static 'icons/jpad_black_name.jpg' %}" alt="J Logo" class="footer-logo">
+    <div class="terms-container">
+      <br>
+      <a href="/" target="_blank" class="TC">Terms & Conditions</a>
+    </div>
+    <br>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/profile.php?id=100083597103928" target="_blank"><i class="fa fa-facebook"></i></a>
+      <a href="https://www.instagram.com/joshbkurniawan7/?hl=id" target="_blank"><i class="fa fa-instagram"></i></a>
+      <a href="https://www.linkedin.com/in/josh-brian-04ab03163/" target="_blank"><i class="fa fa-linkedin"></i></a>
+      <a href="/" target="_blank"><i class="fa fa-twitter"></i></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  ////////////////////////////////////
+  // NAVIGATION SHOW/HIDE
+
+  $(".my-nav ul").hide();
+
+  $(".my-nav-toggle").click(function () {
+    $(".my-nav ul").slideToggle("medium");
+  });
+
+  $(".my-nav ul li a, .my-brand a").click(function () {
+    $(".my-nav ul").hide();
+  });
+
+  ////////////////////////////////////
+  // SMOOTH SCROLLING WITH NAV HEIGHT OFFSET
+
+  $(function () {
+    var navHeight = $(".my-nav").outerHeight();
+    $('a[href*="#"]:not([href="#"])').click(function () {
+      if (
+        location.pathname.replace(/^\//, '') ==
+          this.pathname.replace(/^\//, '') &&
+        location.hostname == this.hostname
+      ) {
+        var target = $(this.hash);
+        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+        if (target.length) {
+          $('html, body').animate({
+            scrollTop: target.offset().top - navHeight
+          }, 1000);
+          return false;
+        }
+      }
+    });
+  });
+
+  ////////////////////////////////////
+  // NAVIGATION STICKY
+
+  var viewHeight = $(window).height();
+  var navigation = $('.my-nav');
+
+  $(window).scroll(function () {
+    if ($(window).scrollTop() > viewHeight - 175) {
+      // Edit for nav height if necessary
+      navigation.addClass('my-sticky');
+    } else {
+      navigation.removeClass('my-sticky');
+    }
+  });
+
+  ////////////////////////////////////////////////
+  // MAKE THE SPLASH CONTAINER VERTICALLY CENTERED
+
+  function centerSplash() {
+    var navHeight = $('.my-nav').outerHeight();
+    var splashHeight = $('.my-splash .my-container').height();
+    var remainingHeight = $(window).height() - splashHeight - navHeight;
+    $('.my-splash .my-container').css({
+      'padding-top': remainingHeight / 2,
+      'padding-bottom': remainingHeight / 2
+    });
+  }
+
+  $(document).ready(function () {
+    centerSplash();
+  });
+
+  $(window).resize(function () {
+    centerSplash();
+  });
+
+  $(document).ready(function() {
+    $('a[href^="#"]').on('click', function(event) {
+        var target = $(this.getAttribute('href'));
+        if (target.length) {
+            event.preventDefault();
+            $('html, body').stop().animate({
+                scrollTop: target.offset().top
+            }, 1000);
+        }
+    });
+});
+</script>
+{% endblock %}
+</body>
+</html>

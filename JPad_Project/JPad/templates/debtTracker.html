@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+    {{ block.super }}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/debt_tracker.css' %}"> 
+    <title>{% block title %}Debt Tracker{% endblock %}</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{% static 'admin/js/jquery.init.js' %}"></script>
+    <script src="{% static 'admin/js/actions.js' %}"></script>
+    <script src="{% static 'admin/js/inlines.js' %}"></script>
+</head>
+{% endblock %}
+<body>
+    {% block content %}
+    <h1>Debt Tracker</h1>  
+    <div class="form-container">
+        <!-- Display form for adding debts -->
+        <form method="POST"  id="debtForm" action="{% url 'debt_tracker' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" id="addDebt">Add Debt</button>
+        </form>
+
+    </div>
+    
+    <br><br>
+    
+    <!-- Display user's debt list -->
+    <ul class="debt-list">
+        {% for debt in user_debts %}
+            <li>
+                <span>{{ debt.name }}: </span>
+                <span>${{ debt.amount }}</span>
+                <span> Date:{{debt.date}}</span>
+                <div class="button-container">
+                    <form id="editButton" method="get" action="{% url 'edit_debt' debt.id %}">
+                        {% csrf_token %}
+                        <button type="submit">Edit</button>
+                    </form>
+                    <form id="deleteButton" method="post" action="{% url 'remove_debt' debt.id %}">
+                        {% csrf_token %}
+                        <button type="submit">Delete</button>
+                    </form>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+    <form method="post" action="{% url 'reset_debt' %}"> 
+        {% csrf_token %} 
+        <button type="submit" id="reset-button">Reset</button>
+    </form>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var resetButton= document.getElementById('reset-button');
+            resetButton.addEventListener('click', function(){
+                var confirmation = confirm("Are you sure you want to reset the debt list?");
+                window.location.href = "{% url 'debt_tracker' %}";
+                });
+        })
+        
+    </script>
+    {% endblock %}
+</body>
+</html>
