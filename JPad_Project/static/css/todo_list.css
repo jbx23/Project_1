@@ -121,7 +121,7 @@ h2,h3{
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
-    width: 200%;
+    width: 95%;
 }
 
 .list-block-todo h2, .list-block-done h2 {

@@ -35,7 +35,7 @@
           <h2>To Do</h2>
           <ul id="todo-list">
               {% for tasks in tasks_todo %}
-                  <li class="item" data-task-id="{{ task.id }}">
+                  <li class="item" data-task-id="{{ tasks.id }}">
                       {{ tasks.task }}
                   </li>
               {% endfor %}
@@ -45,7 +45,7 @@
           <h2>Done</h2>
           <ul id="done-list">
               {% for tasks in tasks_done %}
-                  <li class="item" data-task-id="{{ task.id }}">
+                  <li class="item" data-task-id="{{ tasks.id }}">
                       {{ tasks.task }}
                   </li>
               {% endfor %}

@@ -6,7 +6,6 @@ body {
   background-image:url('../images/home.jpg');
   background-size: cover;
   height: 105vh;
-  overflow: hidden;
 }
 
 @keyframes slideInBottom {
