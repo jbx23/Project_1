@@ -77,23 +77,23 @@ WSGI_APPLICATION = 'JPad_Project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASES = {
-#      "default": {
-#         "ENGINE": 'django.db.backends.postgresql',
-#         "NAME": 'JPad_db',
-#         'USER': 'postgres',
-#         'PASSWORD': '123',
-#         'HOST': 'localhost',
-#         'PORT': '5432',
-#     }
-# }
-
 DATABASES = {
-    "default": dj_database_url.parse(os.environ.get("DATABASE_URL")),
-    'OPTIONS': {
-            'init_command': "SET TIME ZONE 'Australia/Perth';",
-        },
-}
+      "default": {
+         "ENGINE": 'django.db.backends.postgresql',
+         "NAME": 'dfcv4gn9k0cln8',
+         'USER': 'neydiuaoxoruss',
+         'PASSWORD': '65ed2ac6175e3e33665cfe00eb00d9d05777ac6c53fcf1da1c0c762624d65c28',
+         'HOST': 'ec2-52-54-200-216.compute-1.amazonaws.com',
+         'PORT': '5432',
+     }
+ }
+
+# DATABASES = {
+#     "default": dj_database_url.parse(os.environ.get("DATABASE_URL")),
+#     'OPTIONS': {
+#             'init_command': "SET TIME ZONE 'Australia/Perth';",
+#         },
+# }
 
 
 # Password validation
