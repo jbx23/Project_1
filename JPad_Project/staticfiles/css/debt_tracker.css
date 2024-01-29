@@ -103,6 +103,7 @@ body {
 
   .debt-list li span {
     font-weight: bold;
+    margin-left: 10px;
   }
   
   .debt-list li Button {
