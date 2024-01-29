@@ -1,1 +1,1 @@
-web: gunicorn JPad_Project.JPad_Project.wsgi:application --log-file -
+web: gunicorn JPad_Project.wsgi:application --log-file -
