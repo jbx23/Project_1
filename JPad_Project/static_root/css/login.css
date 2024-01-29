@@ -1,0 +1,93 @@
+body{
+    background-image: url('https://media.giphy.com/media/YOAqV6wRGOEVM48svy/giphy-downsized-large.gif');
+    background-size:5%;
+    animation: backgroundAnimation 10s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+  }
+  
+  @keyframes backgroundAnimation {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 0%; }
+  }
+  .login-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .login-container {
+    background-color: rgba(255,255,255,0.85);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 450px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .login-header {
+    text-align: center;
+  }
+  
+  .login-header h2 {
+    margin: 0;
+    color: #333;
+  }
+  
+  .login-messages {
+    margin-top: 10px;
+    color: #cc0000;
+  }
+  
+  .login-form {
+    margin-top: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  .login-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .register-link {
+    margin-top: 15px;
+    text-align: center;
+    color: #555;
+  }
+  
+  .register-link a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .register-link a:hover {
+    text-decoration: underline;
+  }
+  
