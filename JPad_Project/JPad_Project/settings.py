@@ -77,27 +77,27 @@ WSGI_APPLICATION = 'JPad_Project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASES = {
-#       "default": {
-#          "ENGINE": 'django.db.backends.postgresql',
-#          "NAME": 'd7qpdaho51a8nr',
-#          'USER': 'urfjapvabwvodl',
-#          'PASSWORD': 'e61c7e9fb4fc7ffe64d061cc67fdde82fbd4de24cc3292621fa03faf89c11e14',
-#          'HOST': 'ec2-35-169-9-79.compute-1.amazonaws.com',
-#          'PORT': '5432',
-#      }
-#  }
-
 DATABASES = {
-     "default": {
-        "ENGINE": 'django.db.backends.postgresql',
-        "NAME": 'JPad_db',
-        'USER': 'postgres',
-        'PASSWORD': '123',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
-}
+      "default": {
+         "ENGINE": 'django.db.backends.postgresql',
+         "NAME": 'db5lko1rsg6nh7',
+         'USER': 'tvkyirtsjzyqne',
+         'PASSWORD': '3350c6bdf5de63edf7c84f0b717fe036c32446f58d7a82101694c4bf37015f3b',
+         'HOST': 'ec2-34-193-110-25.compute-1.amazonaws.com',
+         'PORT': '5432',
+     }
+ }
+
+# DATABASES = {
+#      "default": {
+#         "ENGINE": 'django.db.backends.postgresql',
+#         "NAME": 'JPad_db',
+#         'USER': 'postgres',
+#         'PASSWORD': '123',
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#     }
+# }
 
 
 
