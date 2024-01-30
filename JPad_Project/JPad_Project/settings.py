@@ -80,10 +80,10 @@ WSGI_APPLICATION = 'JPad_Project.wsgi.application'
 DATABASES = {
       "default": {
          "ENGINE": 'django.db.backends.postgresql',
-         "NAME": 'dfcv4gn9k0cln8',
-         'USER': 'neydiuaoxoruss',
-         'PASSWORD': '65ed2ac6175e3e33665cfe00eb00d9d05777ac6c53fcf1da1c0c762624d65c28',
-         'HOST': 'ec2-52-54-200-216.compute-1.amazonaws.com',
+         "NAME": 'd3rsqnsdgutukj',
+         'USER': 'ahxgawyourowin',
+         'PASSWORD': '590f966ff0a826112fa43ace873d79540ec8e20825020af54328affe323d5368',
+         'HOST': 'ec2-35-169-9-79.compute-1.amazonaws.com',
          'PORT': '5432',
      }
  }
