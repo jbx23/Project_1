@@ -25,9 +25,10 @@ body {
 
 .container-profile {
     max-width: 800px;
+    width:90%;
     margin: 50px auto;
     background-color: rgba(255,255,255,0.6);
-    padding: 20px;
+    padding: 20px 40px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
     max-height: 800px;
     animation: slideIn 1s ease-out;
@@ -101,3 +102,17 @@ h2 {
 .edit-btn{
   background-color: #006d12;
 }
+@media (max-width: 650px) {
+    .container-profile {
+      padding: 10px; 
+    }
+  
+    h2 {
+      font-size: 27px; 
+    }
+  
+    .profile-info p {
+      font-size: 15px; 
+    }
+  }
+  

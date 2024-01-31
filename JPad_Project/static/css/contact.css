@@ -36,6 +36,8 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
     padding: 30px;
     text-align: center;
+    max-width: 700px;
+    width:90%
 }
 
 .contact-box h1 {
@@ -61,3 +63,17 @@ body {
     opacity: 0;
     transform: translateY(-20px);
 }
+
+@media (max-width: 650px) {  
+    .contact-box {
+        padding: 10px; 
+      }
+    .contact-box h1 {
+      font-size: 17.2px; 
+    }
+  
+    .contact-box p {
+      font-size: 11.45px; 
+    }
+  }
+  

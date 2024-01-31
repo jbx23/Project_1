@@ -80,8 +80,8 @@ p {
     color: #fff;
     text-align: center;
     padding: 5em 0;
-    background-size: 200% auto; /* Adjust the size as needed */
-    animation: moveBackground 10s linear infinite; /* Adjust the duration as needed */
+    background-size: 200% auto; 
+    animation: moveBackground 10s linear infinite; 
 }
 
 @keyframes moveBackground {
@@ -114,7 +114,6 @@ p {
     border-radius: 4px;
 }
 
-/* Add this to your existing CSS or create a new CSS file */
 .my-gallery-slider {
     position: relative;
     overflow: hidden;
@@ -190,9 +189,12 @@ input[type ="radio"]{
     left: 10px;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 650px) {
     .footer-logo {
         width: 150px;
+    }
+    p{
+        font-size: 18px;
     }
 }
 
@@ -200,4 +202,4 @@ input[type ="radio"]{
     .footer-logo {
         width: 250px;
     }
-}
+  }

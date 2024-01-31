@@ -35,7 +35,7 @@
       <button id="convert" onclick="convert()">Convert</button>
       <button id="reset" onclick="reset()">Reset</button>
     </div>    
-    <form method="POST" action="{% url 'home' %}">
+    <form method="GET" action="{% url 'home' %}">
       <button type="submit" id="back-button">Back to Home</button>
     </form>
   </div>

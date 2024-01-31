@@ -34,7 +34,7 @@
         <div>
             <button id="convert" onclick="convert()">Convert</button>
         </div>
-        <form method="POST" action="/home">
+        <form method="GET" action="{% url 'home' %}">
            <button type="submit" id="back-button">Back to Home</button>
         </form>
         <div id="result"></div>

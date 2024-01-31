@@ -69,7 +69,7 @@ h2,h3{
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    width:fit-content;
     margin-bottom: 50px;
     animation: slideInTop 0.5s ease-out;
 }
@@ -162,18 +162,6 @@ h2,h3{
     font-weight:bold;
 }
 
-@media (max-width: 768px) {
-    .list-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .list-block {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-}
-
 button#reset-button{
     background-color: #4d0202;
     color: #f5f5f5;
@@ -191,3 +179,21 @@ button#reset-button:hover{
     background-color: rgb(175, 0, 0);
 }
 
+@media (max-width: 650px) {
+    .list-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .list-block-todo {
+        width: 95%;
+        margin-bottom: 15px;
+    }
+    .list-block-done{
+        width: 95%;
+        margin-bottom: 15px;
+    }
+    .list-block-todo ul li, .list-block-done ul li {
+        font-size: 12.6px;
+    }
+}

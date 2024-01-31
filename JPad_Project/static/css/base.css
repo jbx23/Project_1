@@ -369,3 +369,13 @@ button {
 .btn-primary:active, .btn-primary2:active {
   box-shadow: none;
 }
+@media (max-width: 650px) {
+  .nav-link.btn.btn-primary,.nav-link.btn.btn-primary2{
+    font-size: 0.75rem ;
+    padding: 0.4rem 1rem;
+  }
+  .nav-link.btn.btn-primary2{
+    margin-left: 6px;
+  }
+
+}

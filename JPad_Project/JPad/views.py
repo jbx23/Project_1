@@ -174,7 +174,7 @@ def reset_debt(request):
     # Delete all tasks for the logged-in user
     Debt.objects.filter(user=request.user).delete()
 
-    return redirect('debtTracker')  # Redirect back to the debt tracker page
+    return redirect('debt_tracker')  # Redirect back to the debt tracker page
 
 
 from .forms import EditProfileForm
