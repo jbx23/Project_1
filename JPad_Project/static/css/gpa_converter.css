@@ -22,13 +22,14 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
     border-left: 8px solid rgba(218,170,0,0.7);
     padding: 10px;
-    max-width: 65%;
+    max-width: 60%;
     width: 100%;
-    max-height: 100%;
+    max-height: 80%;
     height: fit-content;
     text-align: center;
     margin: auto;
-    margin-top: 30px;
+    margin-top: 3.95%;
+    margin-bottom: 2.7%;
     animation: fadeIn 1s ease-out;
 }
 #content div{
@@ -53,7 +54,7 @@ label {
 input {
     width: 78%;
     padding: 8px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
     box-sizing: border-box;
@@ -67,7 +68,8 @@ button#convert {
     border: 1px solid #f4f4f4;
     border-radius: 4px;
     cursor: pointer;
-    margin-bottom: 5px;
+    margin-bottom: 3px;
+    margin-right: 6px;
     width:70px;
 }
 button#reset{
@@ -76,7 +78,8 @@ button#reset{
     padding: 10px;
     border: 1px solid #3498db ;
     border-radius: 4px;
-    margin-top: 5px;
+    margin-top: 3px;
+    margin-left: 6px;
     cursor: pointer;
     width:70px;
 }
@@ -84,7 +87,7 @@ button#reset{
 #content div.buttonOperations{
     display: inline-block;
     width: 50%;
-    margin-top: 4%;
+    margin-top: 3%;
 }
 
 button#convert:hover {
@@ -96,7 +99,7 @@ button#reset:hover{
 }
 
 #result {
-    margin-top: 20px;
+    margin-top: 25px;
     color: #d6ee00;
     font-size: large;
     text-align: center;
@@ -118,6 +121,10 @@ button#reset:hover{
 }
 
 @media (max-width: 650px) {
+      #container-gpa {
+        max-width:70%;
+        margin-top: 70px;
+      }
       button#convert,button#reset,button#back-button{
         width:50px;
         padding: 5px;

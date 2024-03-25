@@ -196,6 +196,9 @@ input[type ="radio"]{
     p{
         font-size: 18px;
     }
+    .my-gallery-image {
+    flex: 0 0 calc(33.33% - 31.8px);
+    }
 }
 
 @media (min-width: 1200px) {
