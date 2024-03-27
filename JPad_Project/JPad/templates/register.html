@@ -9,8 +9,7 @@
     <title> Register</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
-<body>
-
+<body class="register-body">
     <form action="{% url 'register' %}" method="post" class="register-form">
         {% csrf_token %}
         <h2>User Registration</h2>
@@ -45,7 +44,6 @@
         <button type="submit">Register</button>
         <p>Already have an account? <a href="/login">Login here</a>.</p>
     </form>
-
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var passwordInput = document.getElementById('id_password');

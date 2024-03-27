@@ -2,9 +2,6 @@ body{
     background-image: url('https://media.giphy.com/media/YOAqV6wRGOEVM48svy/giphy-downsized-large.gif');
     background-size:5%;
     animation: backgroundAnimation 10s ease infinite;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: auto;
   }
   

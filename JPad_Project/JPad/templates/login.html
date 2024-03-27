@@ -12,12 +12,10 @@
   <title>Login</title>
 </head>
 <body class="login-body">
-
   <div class="login-container">
     <div class="login-header">
       <h2>Login</h2>
     </div>
-
     {% if messages %}
       <div class="login-messages">
         {% for message in messages %}
@@ -25,7 +23,6 @@
         {% endfor %}
       </div>
     {% endif %}
-
     <form method="post" action="{% url 'login' %}" class="login-form">
       {% csrf_token %}
       <div class="form-group">

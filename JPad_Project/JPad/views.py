@@ -41,18 +41,18 @@ def register(request):
     else:
         return render (request,'register.html')
     
-def sign_login(request):
-    if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-            return redirect('profile')  # Change 'home' to the desired URL after successful login
-        else:
-            messages.error(request, 'Invalid username or password.')
+# def sign_login(request):
+#     if request.method == 'POST':
+#         username = request.POST['username']
+#         password = request.POST['password']
+#         user = authenticate(request, username=username, password=password)
+#         if user is not None:
+#             login(request, user)
+#             return redirect('profile')  # Change 'home' to the desired URL after successful login
+#         else:
+#             messages.error(request, 'Invalid username or password.')
     
-    return render(request, 'login.html')
+#     return render(request, 'login.html')
 
 
 def custom_login(request):

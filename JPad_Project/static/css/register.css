@@ -3,8 +3,8 @@ body{
     background-size:0.2%;
     animation: backgroundAnimation 10s ease infinite;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     height: auto;
   }
   
@@ -12,6 +12,13 @@ body{
     0% { background-position: 0% 0%; }
     100% { background-position: 100% 0%; }
   }
+
+  .register-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .register-form {
     padding: 20px;
     background-color: rgba(255,255,255,0.7);
